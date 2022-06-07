@@ -20,4 +20,13 @@ public class Game {
         return bowling.get(index);
     }
 
+    public int finalResult() {
+        int finalResult = 0;
+        for (Frame frame : bowling) {
+            finalResult++;
+        }
+
+        return finalResult;
+    }
+
 }

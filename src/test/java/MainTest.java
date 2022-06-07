@@ -27,4 +27,12 @@ public class MainTest {
         Assertions.assertThat(bowling.getAFrame(1).frameResult()).isEqualTo("STRIKE");
         Assertions.assertThat(bowling.getAFrame(2).frameResult()).isEqualTo("6");
     }
+
+    @Test
+    void should_calculate_1_point_for_each_frame() {
+        bowling.play('9', '-');
+        bowling.strike();
+        bowling.play('5', '1');
+        Assertions.assertThat(bowling.finalResult()).isEqualTo(3);
+    }
 }
