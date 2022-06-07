@@ -7,6 +7,7 @@ public class Main {
 
        bowling.play('9', '-');
        bowling.strike();
+       bowling.play('5', '1');
 
     }
 }

@@ -22,7 +22,9 @@ public class MainTest {
     void should_get_score_of_a_frame_in_the_game() {
         bowling.play('9', '-');
         bowling.strike();
+        bowling.play('5', '1');
         Assertions.assertThat(bowling.getAFrame(0).frameResult()).isEqualTo("SPARE");
         Assertions.assertThat(bowling.getAFrame(1).frameResult()).isEqualTo("STRIKE");
+        Assertions.assertThat(bowling.getAFrame(2).frameResult()).isEqualTo("6");
     }
 }
