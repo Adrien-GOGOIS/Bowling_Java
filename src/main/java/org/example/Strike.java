@@ -12,8 +12,8 @@ public class Strike extends Frame{
     }
 
     @Override
-    public String getResult() {
-        return result = "STRIKE";
+    public int getResult() {
+        return result = 10;
     }
 
 }

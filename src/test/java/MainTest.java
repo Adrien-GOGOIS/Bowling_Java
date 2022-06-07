@@ -28,11 +28,16 @@ public class MainTest {
 
     @Test
     void should_calculate_final_result() {
-        bowling.play('9', '-');
-        bowling.play('5', '1');
         bowling.play('X');
-        bowling.play('7', '0');
-        bowling.play('2', '1');
-        Assertions.assertThat(bowling.finalResult()).isEqualTo(10 + 6 + 6 + 10 + 7 + 7 + 3 + 3);
+        bowling.play('X');
+        bowling.play('X');
+        bowling.play('X');
+        bowling.play('X');
+        bowling.play('X');
+        bowling.play('X');
+        bowling.play('X');
+        bowling.play('9', '0');
+        bowling.play('8', '1');
+        Assertions.assertThat(bowling.finalResult()).isEqualTo(30 + 30 + 30 + 30 + 30 + 30 + 29 + 28 + 9 + 9);
     }
 }

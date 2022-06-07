@@ -1,9 +1,9 @@
 package org.example;
 
 public class Frame {
-    public String result = "";
+    public int result;
 
-    public String getResult() {
-        return null;
+    public int getResult() {
+        return result;
     }
 }

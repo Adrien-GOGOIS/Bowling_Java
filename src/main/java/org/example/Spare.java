@@ -12,7 +12,7 @@ public class Spare extends Frame {
     }
 
     @Override
-    public String getResult() {
-        return result = "SPARE";
+    public int getResult() {
+        return result = 10;
     }
 }

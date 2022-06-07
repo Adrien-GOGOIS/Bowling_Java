@@ -29,13 +29,13 @@ public class Game {
         for (int index = 0; index < bowling.size(); index++) {
             if (getAFrame(index) instanceof Strike) {
                 finalResult += 10
-                    + Integer.parseInt(getAFrame(index+1).getResult())
-                    + Integer.parseInt(getAFrame(index+2).getResult());
+                    + getAFrame(index+1).getResult()
+                    + getAFrame(index+2).getResult();
             } else if (getAFrame(index) instanceof Spare) {
                 finalResult += 10
-                    + Integer.parseInt(getAFrame(index+1).getResult());
+                    + getAFrame(index+1).getResult();
             } else {
-                finalResult += Integer.parseInt(getAFrame(index).getResult());
+                finalResult += getAFrame(index).getResult();
             }
         }
 
