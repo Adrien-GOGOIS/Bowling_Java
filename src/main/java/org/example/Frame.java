@@ -15,20 +15,17 @@ public class Frame {
 
     public String frameResult() {
 
-        char firstTry = playerFrame.get(0).getTry();
-
         String result = "";
 
-        if (playerFrame.size() <= 1 && firstTry == 'X') {
+        if (playerFrame.size() <= 1) {
             result = "STRIKE";
-        } else if (playerFrame.size() == 2 && playerFrame.get(1).getTry() == '-') {
+        } else if (playerFrame.get(1).getTry() == '-') {
             result = "SPARE";
-        } else if (playerFrame.size() == 2 && playerFrame.get(1).getTry() != '-') {
-            int try1 = Character.getNumericValue(playerFrame.get(0).getTry());
-            int try2 = Character.getNumericValue(playerFrame.get(1).getTry());
-            int intResult = try1 + try2;
+        } else if (playerFrame.get(1).getTry() != '-') {
+            int firstTry = Character.getNumericValue(playerFrame.get(0).getTry());
+            int secondTry = Character.getNumericValue(playerFrame.get(1).getTry());
 
-            result = Integer.toString(intResult);
+            result = Integer.toString(firstTry + secondTry);
         }
 
         return result;
