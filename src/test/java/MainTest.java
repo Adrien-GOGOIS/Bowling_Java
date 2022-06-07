@@ -18,21 +18,21 @@ public class MainTest {
        Assertions.assertThat(secondFrame.frameResult()).isEqualTo("STRIKE");
     }*/
 
-    @Test
+    /*@Test
     void should_get_score_of_a_frame_in_the_game() {
-        bowling.play('9', '-');
-        bowling.strike();
-        bowling.play('5', '1');
-        Assertions.assertThat(bowling.getAFrame(0).frameResult()).isEqualTo("SPARE");
-        Assertions.assertThat(bowling.getAFrame(1).frameResult()).isEqualTo("STRIKE");
-        Assertions.assertThat(bowling.getAFrame(2).frameResult()).isEqualTo("6");
-    }
+        bowling.play('X');
+        bowling.play('6', '1');
+        Assertions.assertThat(bowling.getAFrame(0).getResult()).isEqualTo("STRIKE");
+        Assertions.assertThat(bowling.getAFrame(1).getResult()).isEqualTo("7");
+    }*/
 
     @Test
-    void should_calculate_1_point_for_each_frame() {
+    void should_calculate_final_result() {
         bowling.play('9', '-');
-        bowling.strike();
         bowling.play('5', '1');
-        Assertions.assertThat(bowling.finalResult()).isEqualTo(3);
+        bowling.play('X');
+        bowling.play('7', '0');
+        bowling.play('2', '1');
+        Assertions.assertThat(bowling.finalResult()).isEqualTo(10 + 6 + 6 + 10 + 7 + 7 + 3 + 3);
     }
 }
