@@ -61,10 +61,10 @@ public class BowlingGameTest {
         assertThat(actual).isEqualTo(15);
     }
 
-    /*@Test
-    void frame_score_should_be_15_points_when_spare_and_5_points_next_roll() {
+    @Test
+    void frame_score_should_be_20_points_when_spare_and_5_points_next_roll() {
 
-        Frame spareFrame = new Frame(5, 5);
+        Frame spareFrame = new Frame(10, 0);
         Frame secondFrame = new Frame(5, 5);
 
         BowlingGame party = new BowlingGame();
@@ -73,8 +73,8 @@ public class BowlingGameTest {
 
         int actual = party.frameScore(0);
 
-        assertThat(actual).isEqualTo(15);
-    }*/
+        assertThat(actual).isEqualTo(20);
+    }
 
 
 }
