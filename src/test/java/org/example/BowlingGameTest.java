@@ -15,7 +15,7 @@ public class BowlingGameTest {
         Frame ninePointsFrame = new Frame(firstRoll, secondRoll);
 
         BowlingGame party = new BowlingGame();
-        party.play(ninePointsFrame);
+        party.add(ninePointsFrame);
 
         int actual = party.frameScore(0);
 
@@ -53,8 +53,8 @@ public class BowlingGameTest {
         Frame secondFrame = new Frame(5, 5);
 
         BowlingGame party = new BowlingGame();
-        party.play(spareFrame);
-        party.play(secondFrame);
+        party.add(spareFrame);
+        party.add(secondFrame);
 
         int actual = party.frameScore(0);
 
@@ -62,19 +62,69 @@ public class BowlingGameTest {
     }
 
     @Test
-    void frame_score_should_be_20_points_when_spare_and_5_points_next_roll() {
+    void frame_score_should_be_20_points_when_strike_and_5_points_next_roll() {
 
         Frame spareFrame = new Frame(10, 0);
         Frame secondFrame = new Frame(5, 5);
 
         BowlingGame party = new BowlingGame();
-        party.play(spareFrame);
-        party.play(secondFrame);
+        party.add(spareFrame);
+        party.add(secondFrame);
 
         int actual = party.frameScore(0);
 
         assertThat(actual).isEqualTo(20);
     }
+
+    @Test
+    void frame_score_should_be_30_points_when_strike_and_2_strike_next_rolls() {
+
+        Frame spareFrame = new Frame(10, 0);
+        Frame secondFrame = new Frame(10, 0);
+        Frame thirdFrame = new Frame (10, 0);
+
+        BowlingGame party = new BowlingGame();
+        party.add(spareFrame);
+        party.add(secondFrame);
+        party.add(thirdFrame);
+
+        int actual = party.frameScore(0);
+
+        assertThat(actual).isEqualTo(30);
+    }
+
+    @Test
+    void final_score_should_be_20_points_when_10_frames_of_2_points() {
+
+        Frame spareFrame = new Frame(2, 0);
+        Frame secondFrame = new Frame(2, 0);
+        Frame thirdFrame = new Frame (2, 0);
+        Frame fourthFrame = new Frame (2, 0);
+        Frame fifthFrame = new Frame (2, 0);
+        Frame sixthFrame = new Frame (2, 0);
+        Frame seventhFrame = new Frame (2, 0);
+        Frame eighthFrame = new Frame (2, 0);
+        Frame ninthFrame = new Frame (2, 0);
+        Frame tenthFrame = new Frame (2, 0);
+
+        BowlingGame party = new BowlingGame();
+        party.add(spareFrame);
+        party.add(secondFrame);
+        party.add(thirdFrame);
+        party.add(fourthFrame);
+        party.add(fifthFrame);
+        party.add(sixthFrame);
+        party.add(seventhFrame);
+        party.add(eighthFrame);
+        party.add(ninthFrame);
+        party.add(tenthFrame);
+
+        int actual = party.score(party.getFrames());
+
+        assertThat(actual).isEqualTo(20);
+    }
+
+
 
 
 }

@@ -12,8 +12,12 @@ public class BowlingGame {
         return frames.stream().map(Frame::score).reduce(0, Integer::sum);
     }
 
-    public void play(Frame frame) {
+    public void add(Frame frame) {
         this.frames.add(frame);
+    }
+
+    public List<Frame> getFrames() {
+        return frames;
     }
 
     public int frameScore(int i) {
@@ -24,10 +28,12 @@ public class BowlingGame {
         }
 
         if (frame.isStrike()) {
+            if (frames.get(i+1).firstRoll == 10) {
+                return 10 + frames.get(i+1).score() + frames.get(i+2).firstRoll;
+            }
             return 10 + frames.get(i+1).score();
         }
 
         return frame.score();
     }
-
 }
