@@ -3,9 +3,11 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BonusFrame extends Frame{
+public class BonusFrame implements Frame{
 
     Try bonusTry;
+
+    int result;
     final public List<Try> bonusFrame = new ArrayList<>();
 
     public BonusFrame(Try bonusTry) {

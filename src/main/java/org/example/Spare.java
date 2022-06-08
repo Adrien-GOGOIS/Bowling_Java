@@ -3,8 +3,9 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Spare extends Frame {
+public class Spare implements Frame {
     final public List<Try> spareFrame = new ArrayList<>();
+    int result = 10;
 
     public Spare(Try spare) {
         super();
@@ -13,6 +14,6 @@ public class Spare extends Frame {
 
     @Override
     public int getResult() {
-        return result = 10;
+        return result;
     }
 }
