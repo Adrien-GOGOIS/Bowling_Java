@@ -23,10 +23,6 @@ public class BowlingGame {
             return 10 + frames.get(i+1).firstRoll;
         }
 
-        if (frame.isStrike()) {
-            return 10 ?;
-        }
-
         return frame.score();
     }
 

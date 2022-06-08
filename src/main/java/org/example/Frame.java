@@ -4,16 +4,21 @@ public class Frame {
 
     final int firstRoll;
     final int secondRoll;
-    final FrameType type;
 
     public Frame(int firstRoll, int secondRoll) {
         this.firstRoll = firstRoll;
         this.secondRoll = secondRoll;
-
-        this.type =
     }
 
     public int score() {
         return firstRoll + secondRoll;
+    }
+
+    public boolean isSpare() {
+        return firstRoll < 10 && score() == 10;
+    }
+
+    public boolean isStrike() {
+        return firstRoll == 10;
     }
 }
