@@ -159,7 +159,29 @@ public class BowlingGameTest {
         assertThat(actual).isEqualTo(150);
     }
 
+    /*@Test
+    void final_score_should_be_300_points_when_perfect_score() {
 
+        Frame strikeFrame = new Frame (10, 0);
+
+        BowlingGame party = new BowlingGame();
+        party.add(strikeFrame);
+        party.add(strikeFrame);
+        party.add(strikeFrame);
+        party.add(strikeFrame);
+        party.add(strikeFrame);
+        party.add(strikeFrame);
+        party.add(strikeFrame);
+        party.add(strikeFrame);
+        party.add(strikeFrame);
+        party.add(strikeFrame);
+        party.add(strikeFrame);
+        party.add(strikeFrame);
+
+        int actual = party.score(party.getFrame());
+
+        assertThat(actual).isEqualTo(300);
+    }*/
 
 
 }

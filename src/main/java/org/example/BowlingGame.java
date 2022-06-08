@@ -35,12 +35,16 @@ public class BowlingGame {
         }
 
         if (frame.isStrike()) {
-            if (frames.get(i+1).firstRoll == 10) {
+            if (frames.get(i+1).isStrike()) {
                 return 10 + frames.get(i+1).score() + frames.get(i+2).firstRoll;
             }
             return 10 + frames.get(i+1).score();
         }
 
-        return frame.score();
+        if (i < 10) {
+            return frame.score();
+        }
+
+        return 0;
     }
 }
