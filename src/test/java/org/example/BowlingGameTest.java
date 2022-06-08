@@ -50,7 +50,7 @@ public class BowlingGameTest {
     void frame_score_should_be_15_points_when_spare_and_5_points_next_roll() {
 
         Frame spareFrame = new Frame(5, 5);
-        Frame secondFrame = new Frame(5, 5);
+        Frame secondFrame = new Frame(5, 0);
 
         BowlingGame party = new BowlingGame();
         party.add(spareFrame);
@@ -64,11 +64,11 @@ public class BowlingGameTest {
     @Test
     void frame_score_should_be_20_points_when_strike_and_5_points_next_roll() {
 
-        Frame spareFrame = new Frame(10, 0);
-        Frame secondFrame = new Frame(5, 5);
+        Frame strikeFrame = new Frame(10, 0);
+        Frame secondFrame = new Frame(5, 0);
 
         BowlingGame party = new BowlingGame();
-        party.add(spareFrame);
+        party.add(strikeFrame);
         party.add(secondFrame);
 
         int actual = party.frameScore(0);
@@ -79,12 +79,12 @@ public class BowlingGameTest {
     @Test
     void frame_score_should_be_30_points_when_strike_and_2_strike_next_rolls() {
 
-        Frame spareFrame = new Frame(10, 0);
+        Frame firstFrame = new Frame(10, 0);
         Frame secondFrame = new Frame(10, 0);
         Frame thirdFrame = new Frame (10, 0);
 
         BowlingGame party = new BowlingGame();
-        party.add(spareFrame);
+        party.add(firstFrame);
         party.add(secondFrame);
         party.add(thirdFrame);
 
@@ -96,7 +96,9 @@ public class BowlingGameTest {
     @Test
     void final_score_should_be_20_points_when_10_frames_of_2_points() {
 
-        Frame spareFrame = new Frame(2, 0);
+        LinkedList<Frame> frames = new LinkedList<>();
+
+        Frame firstFrame = new Frame(2, 0);
         Frame secondFrame = new Frame(2, 0);
         Frame thirdFrame = new Frame (2, 0);
         Frame fourthFrame = new Frame (2, 0);
@@ -106,6 +108,37 @@ public class BowlingGameTest {
         Frame eighthFrame = new Frame (2, 0);
         Frame ninthFrame = new Frame (2, 0);
         Frame tenthFrame = new Frame (2, 0);
+
+        frames.add(firstFrame);
+        frames.add(secondFrame);
+        frames.add(thirdFrame);
+        frames.add(fourthFrame);
+        frames.add(fifthFrame);
+        frames.add(sixthFrame);
+        frames.add(seventhFrame);
+        frames.add(eighthFrame);
+        frames.add(ninthFrame);
+        frames.add(tenthFrame);
+
+        int actual = BowlingGame.score(frames);
+
+        assertThat(actual).isEqualTo(20);
+    }
+
+    /*@Test
+    void final_score_should_be_150_points_when_only_spare_and_final_roll_of_5_points() {
+
+        Frame spareFrame = new Frame (5, 5);
+        Frame secondFrame = new Frame (5, 5);
+        Frame thirdFrame = new Frame (5, 5);
+        Frame fourthFrame = new Frame (5, 5);
+        Frame fifthFrame = new Frame (5, 5);
+        Frame sixthFrame = new Frame (5, 5);
+        Frame seventhFrame = new Frame (5, 5);
+        Frame eighthFrame = new Frame (5, 5);
+        Frame ninthFrame = new Frame (5, 5);
+        Frame tenthFrame = new Frame (5, 5);
+        Frame eleventhFrame = new Frame (5, 0);
 
         BowlingGame party = new BowlingGame();
         party.add(spareFrame);
@@ -118,11 +151,15 @@ public class BowlingGameTest {
         party.add(eighthFrame);
         party.add(ninthFrame);
         party.add(tenthFrame);
+        party.add(eleventhFrame);
 
-        int actual = party.score(party.getFrames());
+        int actual = 0;
+        for (int i = 0; i < party.getFrames().size(); i++) {
+            actual += party.frameScore(i);
+        }
 
-        assertThat(actual).isEqualTo(20);
-    }
+        assertThat(actual).isEqualTo(150);
+    }*/
 
 
 
