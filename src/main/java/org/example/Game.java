@@ -5,19 +5,23 @@ import java.util.List;
 
 public class Game {
     public List<Frame> bowling = new ArrayList<>();
-    public void play(char... tries) {
 
-        if (tries.length == 1 && tries[0] == 'X') {
-            Frame strike = new Strike(new Try(tries[0]));
+    public void play(char firstTry) {
+        if (firstTry == 'X') {
+            Frame strike = new Strike(new Try(firstTry));
             bowling.add(strike);
-        } else if (tries.length == 1 && tries[0] != 'X') {
-            Frame bonusFrame = new BonusFrame(new Try(tries[0]));
+        } else {
+            Frame bonusFrame = new BonusFrame(new Try(firstTry));
             bowling.add(bonusFrame);
-        } else if (tries[1] == '-') {
-            Frame spare = new Spare(new Try(tries[1]));
+        }
+    }
+    public void play(char firstTry, char secondTry) {
+
+        if (secondTry == '-') {
+            Frame spare = new Spare(new Try(secondTry));
             bowling.add(spare);
         } else {
-            Frame hole = new Hole(new Try(tries[0]), new Try(tries[1]));
+            Frame hole = new Hole(new Try(firstTry), new Try(secondTry));
             bowling.add(hole);
         }
 
@@ -34,6 +38,7 @@ public class Game {
 
             if (index >= 10) {
                 break;
+
             } else {
 
                 if (getAFrame(index) instanceof Strike) {
@@ -47,8 +52,6 @@ public class Game {
                     finalResult += getAFrame(index).getResult();
                 }
             }
-
-
         }
 
         return finalResult;
