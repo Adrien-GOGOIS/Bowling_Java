@@ -42,10 +42,15 @@ public class BowlingGameTest {
         Assertions.assertThat(g.score()).isEqualTo(24);
     }
 
+    @Test
+    public void testPerfectGame() throws Exception {
+        rollMany(12,10);
+        Assertions.assertThat(g.score()).isEqualTo(300);
+    }
+
     private void rollStrike() {
         g.roll(10);
     }
-
 
     private void rollSpare() {
         g.roll(5);
