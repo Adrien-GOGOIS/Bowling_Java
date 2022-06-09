@@ -27,21 +27,22 @@ public class BowlingGame {
     }
 
 
-    public int frameScore(int i) {
-        Frame frame = frames.get(i);
+    public int frameScore(int frameNumber) {
+        Frame frame = frames.get(frameNumber);
+        int nextFrame = frameNumber+1;
 
         if (frame.isSpare()) {
-            return 10 + frames.get(i+1).firstRoll;
+            return 10 + frames.get(nextFrame).firstRoll;
         }
 
         if (frame.isStrike()) {
-            if (frames.get(i+1).isStrike()) {
-                return 10 + frames.get(i+1).score() + frames.get(i+2).firstRoll;
+            if (frames.get(nextFrame).isStrike()) {
+                return 10 + frames.get(nextFrame).score() + frames.get(nextFrame+1).firstRoll;
             }
-            return 10 + frames.get(i+1).score();
+            return 10 + frames.get(nextFrame).score();
         }
 
-        if (i < 10) {
+        if (frameNumber < 10) {
             return frame.score();
         }
 

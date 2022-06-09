@@ -159,7 +159,7 @@ public class BowlingGameTest {
         assertThat(actual).isEqualTo(150);
     }
 
-    /*@Test
+    @Test
     void final_score_should_be_300_points_when_perfect_score() {
 
         Frame strikeFrame = new Frame (10, 0);
@@ -181,7 +181,7 @@ public class BowlingGameTest {
         int actual = party.score(party.getFrame());
 
         assertThat(actual).isEqualTo(300);
-    }*/
+    }
 
 
 }
