@@ -25,13 +25,13 @@ public class BowlingGameTest {
 
     }
 
-    /*@Test
+    @Test
     public void testOneSpare() throws Exception {
         g.roll(5);
         g.roll(5); // spare
         g.roll(3);
         rollMany(17,0);
         Assertions.assertThat(g.score()).isEqualTo(16);
-    }*/
+    }
 
 }

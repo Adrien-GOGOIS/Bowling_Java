@@ -10,7 +10,11 @@ public class Game {
 
     public int score() {
         int score = 0;
-        for (int roll : rolls) score += roll;
+        int i = 0;
+        for (int frame = 0; frame < 10; frame++)  {
+            score += rolls[i] + rolls[i+1];
+            i += 2;
+        }
         return score;
     }
 
