@@ -7,18 +7,15 @@ import org.junit.jupiter.api.Test;
 public class BowlingGameTest {
     Game g = new Game();
 
-    @Test
-    public void testGutterGame() throws Exception {
-        int n = 20;
-        int pins = 0;
-        rollMany(20, 0);
-        Assertions.assertThat(g.score()).isEqualTo(0);
-
-    }
-
     private void rollMany(int n, int pins) {
         for (int i = 0; i < n; i++)
             g.roll(pins);
+    }
+    @Test
+    public void testGutterGame() throws Exception {
+        rollMany(20, 0);
+        Assertions.assertThat(g.score()).isEqualTo(0);
+
     }
 
     @Test
@@ -27,5 +24,14 @@ public class BowlingGameTest {
         Assertions.assertThat(g.score()).isEqualTo(20);
 
     }
+
+    /*@Test
+    public void testOneSpare() throws Exception {
+        g.roll(5);
+        g.roll(5); // spare
+        g.roll(3);
+        rollMany(17,0);
+        Assertions.assertThat(g.score()).isEqualTo(16);
+    }*/
 
 }
