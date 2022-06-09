@@ -36,16 +36,19 @@ public class BowlingGame {
         }
 
         if (frame.isStrike()) {
+            if (frameNumber >= 10) {
+                return 0;
+            }
             if (frames.get(nextFrame).isStrike()) {
                 return 10 + frames.get(nextFrame).score() + frames.get(nextFrame+1).firstRoll;
             }
             return 10 + frames.get(nextFrame).score();
         }
 
-        if (frameNumber < 10) {
-            return frame.score();
+        if (frameNumber == 10 && frames.get(9).isSpare()) {
+            return 0;
         }
 
-        return 0;
+        return frame.score();
     }
 }

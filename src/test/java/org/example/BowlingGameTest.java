@@ -160,6 +160,30 @@ public class BowlingGameTest {
     }
 
     @Test
+    void final_score_should_be_290_points_when_perfect_score_but_2_last_5_points_rolls() {
+
+        Frame strikeFrame = new Frame (10, 0);
+
+        BowlingGame party = new BowlingGame();
+        party.add(strikeFrame);
+        party.add(strikeFrame);
+        party.add(strikeFrame);
+        party.add(strikeFrame);
+        party.add(strikeFrame);
+        party.add(strikeFrame);
+        party.add(strikeFrame);
+        party.add(strikeFrame);
+        party.add(strikeFrame);
+        party.add(strikeFrame);
+        party.add(new Frame (5, 0));
+        party.add(new Frame (5, 0));
+
+        int actual = party.score(party.getFrame());
+
+        assertThat(actual).isEqualTo(290);
+    }
+
+    @Test
     void final_score_should_be_300_points_when_perfect_score() {
 
         Frame strikeFrame = new Frame (10, 0);
